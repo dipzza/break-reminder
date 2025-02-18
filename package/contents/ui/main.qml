@@ -10,13 +10,14 @@ import org.kde.kirigami as Kirigami
 PlasmoidItem {
     id: root
 
+    property bool isOnBreak: false
 
     switchWidth: Kirigami.Units.gridUnit * 5
     switchHeight: Kirigami.Units.gridUnit * 5
-    toolTipMainText: i18n("Break Reminder")
-    toolTipSubText: "subtext"
+    toolTipMainText: isOnBreak ? "Time to take a Break!" : "Focus Time"
+    toolTipSubText: isOnBreak ? "" : "Next break in 05:00"
     toolTipTextFormat: Text.PlainText
-    icon: "klipper-symbolic"
+    Plasmoid.icon: isOnBreak ? "kteatime-symbolic" : "alarm-symbolic"
 
     fullRepresentation:  Item {
         Layout.minimumWidth: label.implicitWidth
