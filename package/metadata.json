@@ -1,0 +1,19 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "dipzza@disroot.org",
+                "Name": "Dipzza"
+            }
+        ],
+        "Category": "Date and Time",
+        "Description": "A widget to take over the world!",
+        "Icon": "battery",
+        "Id": "dipzza.break-reminder",
+        "Name": "Break Reminder",
+        "Version": "1",
+        "Website": "https://github.com/dipzza/break-reminder"
+    },
+    "X-Plasma-API-Minimum-Version": "6.0",
+    "KPackageStructure": "Plasma/Applet"
+}
