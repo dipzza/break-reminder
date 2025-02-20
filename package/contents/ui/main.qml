@@ -42,6 +42,7 @@ PlasmoidItem {
             } else {
                 root.isOnBreak = true
                 workTimer.stop()
+                breakNotification.text = tips[Math.floor(Math.random() * tips.length)]
                 breakNotification.sendEvent()
 
                 timeTillWork = breakTime
@@ -76,6 +77,18 @@ PlasmoidItem {
         iconName: "kteatime-symbolic"
         urgency: Notification.HighUrgency
     }
+
+    readonly property var tips: [
+        "Relax your eyes, focus on distant objects for 20 seconds 👀",
+        "Refresh yourself by drinking water 💧",
+        "You deserve a healthy snack, eat a fruit or some nuts 🍎🥜",
+        "Walk around and keep your body moving 🚶‍➡️",
+        "Remember to maintain a good posture, sit up straight and relax your shoulders.",
+        "Step outside for fresh air and sunlight ☀️",
+        "Stretch your back, arms, and neck to release tension.",
+        "Loosen up your wrists and fingers with gentle stretches 👋",
+        "Close your eyes, take a deep breath, and relax 😌"
+    ]
 
     fullRepresentation:  Item {
         Layout.minimumWidth: label.implicitWidth
