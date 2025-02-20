@@ -73,10 +73,8 @@ PlasmoidItem {
         eventId: "notification"
         title: "Time to take a Break!"
         text: "Remember to stay hydrated."
-        iconName: "kde"
-        flags: Notification.Persistent
+        iconName: "kteatime-symbolic"
         urgency: Notification.HighUrgency
-        onClosed: console.log("Notification closed.")
     }
 
     fullRepresentation:  Item {
