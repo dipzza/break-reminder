@@ -7,8 +7,8 @@
             }
         ],
         "Category": "Date and Time",
-        "Description": "A widget to take over the world!",
-        "Icon": "battery",
+        "Description": "Reminders to take regular breaks and take care of yourself",
+        "Icon": "kteatime-symbolic",
         "Id": "dipzza.break-reminder",
         "Name": "Break Reminder",
         "Version": "1",
