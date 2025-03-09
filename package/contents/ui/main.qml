@@ -12,58 +12,43 @@ PlasmoidItem {
     id: root
 
     property bool isOnBreak: false
-    property int workTime: 10 * 1000
-    property int timeTillBreak: workTime
-    property int breakTime: 10 * 1000
-    property int timeTillWork: breakTime
 
-    property string formattedTime: {
-        var totalSeconds = Math.floor(timeTillBreak / 1000);
-        var minutes = Math.floor(totalSeconds / 60);
-        var seconds = totalSeconds % 60;
+    property int focusSeconds: plasmoid.configuration.focusMinutes * 60
+    property int breakSeconds: plasmoid.configuration.breakMinutes * 60
+    property int remainingSeconds: focusSeconds
+
+    property string formattedRemainingSeconds: {
+        var minutes = Math.floor(remainingSeconds / 60);
+        var seconds = remainingSeconds % 60;
         return (minutes < 10 ? "0" : "") + minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
     }
 
     switchWidth: Kirigami.Units.gridUnit * 5
     switchHeight: Kirigami.Units.gridUnit * 5
-    toolTipMainText: isOnBreak ? "Take a Break!" : "Focus Time"
-    toolTipSubText: isOnBreak ? "Rest for at least 05:00" : "Next break in " + formattedTime
-    toolTipTextFormat: Text.PlainText
+    toolTipMainText: formattedRemainingSeconds
+    toolTipSubText: isOnBreak ? "Take a break :)" : "Time to focus!"
     Plasmoid.icon: isOnBreak ? "kteatime-symbolic" : "alarm-symbolic"
 
     Timer {
-        id: workTimer
+        id: timer
         interval: 1000
         running: true
         repeat: true
         onTriggered: {
-            if (timeTillBreak > 0) {
-                timeTillBreak -= 1000
+            if (remainingSeconds > 0) {
+                remainingSeconds -= 1
+                return
+            }
+
+            if (isOnBreak) {
+                isOnBreak = false
+                remainingSeconds = focusSeconds
             } else {
-                root.isOnBreak = true
-                workTimer.stop()
+                isOnBreak = true
+                remainingSeconds = breakSeconds
+
                 breakNotification.text = tips[Math.floor(Math.random() * tips.length)]
                 breakNotification.sendEvent()
-
-                timeTillWork = breakTime
-                breakTimer.start()
-            }
-        }
-    }
-
-    Timer {
-        id: breakTimer
-        interval: 1000
-        running: false
-        repeat: true
-        onTriggered: {
-            if (timeTillWork > 0) {
-                timeTillWork -= 1000
-            } else {
-                root.isOnBreak = false
-                breakTimer.stop()
-                timeTillBreak = workTime
-                workTimer.start()
             }
         }
     }
