@@ -11,7 +11,8 @@
         "Icon": "kteatime-symbolic",
         "Id": "dipzza.break-reminder",
         "Name": "Break Reminder",
-        "Version": "1",
+        "Version": "1.0.0",
+        "License": "GPL-3.0+",
         "Website": "https://github.com/dipzza/break-reminder"
     },
     "X-Plasma-API-Minimum-Version": "6.0",
