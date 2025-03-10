@@ -43,7 +43,7 @@ PlasmoidItem {
         switch (status) {
             case statusEnum.start: return Qt.resolvedUrl("../icons/start.svg")
             case statusEnum.focus: return Qt.resolvedUrl("../icons/in-focus.svg")
-            case statusEnum.break: return "kteatime-symbolic"
+            case statusEnum.break: return Qt.resolvedUrl("../icons/break.svg")
         }
     }
 
