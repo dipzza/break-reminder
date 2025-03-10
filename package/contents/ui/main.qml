@@ -23,8 +23,9 @@ PlasmoidItem {
         return (minutes < 10 ? "0" : "") + minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
     }
 
-    switchWidth: Kirigami.Units.gridUnit * 5
-    switchHeight: Kirigami.Units.gridUnit * 5
+    preferredRepresentation: root.compactRepresentation
+    activationTogglesExpanded: false
+    
     toolTipMainText: formattedRemainingSeconds
     toolTipSubText: isOnBreak ? "Take a break :)" : "Time to focus!"
     Plasmoid.icon: isOnBreak ? "kteatime-symbolic" : "alarm-symbolic"
@@ -75,18 +76,7 @@ PlasmoidItem {
         "Close your eyes, take a deep breath, and relax 😌"
     ]
 
-    fullRepresentation:  Item {
-        Layout.minimumWidth: label.implicitWidth
-        Layout.minimumHeight: label.implicitHeight
-        Layout.preferredWidth: 640
-        Layout.preferredHeight: 480
-
-        PlasmaComponents.Label {
-            id: label
-            anchors.fill: parent
-            text: "Hello World!"
-            horizontalAlignment: Text.AlignHCenter
-        }
-    }
+    compactRepresentation: CompactRepresentation{}
+    fullRepresentation: Item {}
 }
 
