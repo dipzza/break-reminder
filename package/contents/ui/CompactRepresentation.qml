@@ -67,12 +67,12 @@ Kirigami.Icon {
 
         anchors.fill: parent
         hoverEnabled: true
-        onPressed: wasExpanded = plasmoidItem.expanded
+        onPressed: defaultCompactRepresentation.plasmoidItem.startFocus()
         onClicked: mouse => {
             if (mouse.button === Qt.MiddleButton) {
                 defaultCompactRepresentation.plasmoidItem.Plasmoid.secondaryActivated();
             } else {
-                defaultCompactRepresentation.plasmoidItem.expanded = !wasExpanded;
+                defaultCompactRepresentation.plasmoidItem.startFocus()
             }
         }
     }
