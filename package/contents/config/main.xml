@@ -4,10 +4,10 @@
 
     <group name="General">
         <entry name="focusMinutes" type="Int">
-            <default>1</default>
+            <default>25</default>
         </entry>
         <entry name="breakMinutes" type="Int">
-            <default>1</default>
+            <default>5</default>
         </entry>
     </group>
 </kcfg>

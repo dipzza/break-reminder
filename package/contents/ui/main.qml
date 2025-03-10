@@ -3,7 +3,7 @@ import QtQuick.Layouts
 
 import org.kde.plasma.core as PlasmaCore
 import org.kde.plasma.components as PlasmaComponents
-import org.kde.plasma.plasmoid 2.0
+import org.kde.plasma.plasmoid
 import org.kde.ksvg as KSVG
 import org.kde.kirigami as Kirigami
 import org.kde.notification
@@ -11,7 +11,6 @@ import org.kde.notification
 PlasmoidItem {
     id: root
 
-    
     readonly property var statusEnum: ({
         start: 0,
         focus: 1,
