@@ -34,16 +34,16 @@ PlasmoidItem {
     toolTipMainText: status == statusEnum.start ? "Stopped" : formattedRemainingSeconds
     toolTipSubText: {
         switch (status) {
-            case statusEnum.start: return "Click to start focus session";
-            case statusEnum.focus: return "Time to focus!";
-            case statusEnum.break: return "Take a break :)";
+            case statusEnum.start: return "Click to start focus session"
+            case statusEnum.focus: return "Time to focus!"
+            case statusEnum.break: return "Take a break :)"
         }
     }
     Plasmoid.icon: {
         switch (status) {
-            case statusEnum.start: return Qt.resolvedUrl("../icons/start.svg");
-            case statusEnum.focus: return Qt.resolvedUrl("../icons/in-focus.svg");
-            case statusEnum.break: return "kteatime-symbolic";
+            case statusEnum.start: return Qt.resolvedUrl("../icons/start.svg")
+            case statusEnum.focus: return Qt.resolvedUrl("../icons/in-focus.svg")
+            case statusEnum.break: return "kteatime-symbolic"
         }
     }
 
@@ -60,8 +60,12 @@ PlasmoidItem {
 
             timer.stop()
             switch (status) {
-                case statusEnum.focus: startBreak();
-                case statusEnum.break: status = statusEnum.start;
+                case statusEnum.focus: 
+                    startBreak()
+                    break
+                case statusEnum.break: 
+                    status = statusEnum.start
+                    break
             }
         }
     }
