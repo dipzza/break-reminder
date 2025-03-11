@@ -6,8 +6,5 @@
         <entry name="focusMinutes" type="Int">
             <default>25</default>
         </entry>
-        <entry name="breakMinutes" type="Int">
-            <default>5</default>
-        </entry>
     </group>
 </kcfg>

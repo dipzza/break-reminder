@@ -11,16 +11,10 @@ import org.kde.notification
 PlasmoidItem {
     id: root
 
-    readonly property var statusEnum: ({
-        start: 0,
-        focus: 1,
-        break: 2,
-    })
-
+    property bool isOnBreak: true
     property int focusSeconds: plasmoid.configuration.focusMinutes * 60
-    property int breakSeconds: plasmoid.configuration.breakMinutes * 60
     property int remainingSeconds: focusSeconds
-    property int status: statusEnum.start
+    
 
     property string formattedRemainingSeconds: {
         var minutes = Math.floor(remainingSeconds / 60);
@@ -30,22 +24,10 @@ PlasmoidItem {
 
     preferredRepresentation: root.compactRepresentation
     activationTogglesExpanded: false
-    
-    toolTipMainText: status == statusEnum.start ? "Stopped" : formattedRemainingSeconds
-    toolTipSubText: {
-        switch (status) {
-            case statusEnum.start: return "Click to start focus session"
-            case statusEnum.focus: return "Time to focus!"
-            case statusEnum.break: return "Take a break :)"
-        }
-    }
-    Plasmoid.icon: {
-        switch (status) {
-            case statusEnum.start: return Qt.resolvedUrl("../icons/start.svg")
-            case statusEnum.focus: return Qt.resolvedUrl("../icons/in-focus.svg")
-            case statusEnum.break: return Qt.resolvedUrl("../icons/break.svg")
-        }
-    }
+
+    toolTipMainText: isOnBreak ? "On break :)" : formattedRemainingSeconds
+    toolTipSubText: isOnBreak ? "Click to start a focus session" : "Time to focus!"
+    Plasmoid.icon: isOnBreak ? Qt.resolvedUrl("../icons/break.svg") : Qt.resolvedUrl("../icons/in-focus.svg")
 
     Timer {
         id: timer
@@ -59,13 +41,8 @@ PlasmoidItem {
             }
 
             timer.stop()
-            switch (status) {
-                case statusEnum.focus: 
-                    startBreak()
-                    break
-                case statusEnum.break: 
-                    status = statusEnum.start
-                    break
+            if (!isOnBreak) {
+                startBreak()
             }
         }
     }
@@ -76,15 +53,13 @@ PlasmoidItem {
     
 
     function startFocus() {
-        status = statusEnum.focus
+        isOnBreak = false
         remainingSeconds = focusSeconds
         timer.start()
     }
 
     function startBreak() {
-        status = statusEnum.break
-        remainingSeconds = breakSeconds
-        timer.start()
+        isOnBreak = true
         notificationManager.sendBreakNotification()
     }
 
