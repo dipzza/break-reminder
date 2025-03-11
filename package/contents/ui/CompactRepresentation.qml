@@ -63,6 +63,8 @@ Kirigami.Icon {
     MouseArea {
         id: mouseArea
 
+        acceptedButtons: Qt.LeftButton | Qt.MiddleButton
+
         property bool wasExpanded: false
 
         anchors.fill: parent
@@ -70,7 +72,7 @@ Kirigami.Icon {
         onPressed: defaultCompactRepresentation.plasmoidItem.startFocus()
         onClicked: mouse => {
             if (mouse.button === Qt.MiddleButton) {
-                defaultCompactRepresentation.plasmoidItem.Plasmoid.secondaryActivated();
+                defaultCompactRepresentation.plasmoidItem.reset()
             } else {
                 defaultCompactRepresentation.plasmoidItem.startFocus()
             }

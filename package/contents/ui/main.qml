@@ -63,6 +63,11 @@ PlasmoidItem {
         notificationManager.sendBreakNotification()
     }
 
+    function reset() {
+        timer.stop()
+        isOnBreak = true
+    }
+
     compactRepresentation: CompactRepresentation{}
     fullRepresentation: Item {}
 }
