@@ -1,6 +1,10 @@
-**Break Reminder**  
-_Warning: Under initial development_
+# Break Reminder
+Simple KDE Plasma widget that reminds you to rest regularly :)
 
-Plasma 6 widget that helps you take regular breaks.
+It also gives health tips and motivational quotes to encourage you to take care of yourself.
 
-It detects when you're using your computer and reminds you to take a break after a set time, changing the widget icon until you do. You can customize the reminder intervals and break duration to suit your needs.
+![imagen](https://github.com/user-attachments/assets/672c8468-a435-4775-bec1-920aacfa49c9)
+
+
+## Credits
+- Thanks to [Praveen Juge](https://github.com/praveenjuge) for the Myna UI icons!
