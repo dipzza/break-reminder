@@ -1,1 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><path d="M3 5.231L6.15 3M21 5.231L17.85 3M20 13a8 8 0 1 1-16 0a8 8 0 0 1 16 0"/><path d="M12 8.5v5l3 2"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <style
+      id="current-color-scheme"
+      type="text/css">
+    </style>
+  </defs>
+  <g fill="none" class="ColorScheme-Text" stroke="currentColor" stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="1.5">
+    <path d="M3 5.231L6.15 3M21 5.231L17.85 3M20 13a8 8 0 1 1-16 0a8 8 0 0 1 16 0" />
+    <path d="M12 8.5v5l3 2" />
+  </g>
+</svg>
