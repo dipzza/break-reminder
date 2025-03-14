@@ -10,6 +10,9 @@ It also gives health tips and motivational quotes to encourage you to take care 
 - Middle-click: Reset (cancel session).
 - Right-click: Access widget configuration.
 
+## Installation
+Get it directly through "Get New Widgets" on your desktop or through https://store.kde.org/p/2270856
+
 ## Development
 You need a distro running Plasma 6, no additional deps. Follow the [Plasma Widget docs](https://develop.kde.org/docs/plasma/widget/testing/) to test locally or install your modified version.
 
